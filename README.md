@@ -1,4 +1,4 @@
-# Alumni Data Management Platform - Smart India Hackathon Project Report
+<img width="1020" height="834" alt="image" src="https://github.com/user-attachments/assets/927ea59c-72fc-4737-b28d-525608da61f8" /># Alumni Data Management Platform - Smart India Hackathon Project Report
 
 ## 1. Detailed Explanation of the Proposed Solution
 
@@ -21,6 +21,8 @@ Traditional alumni management suffers from fragmented communication, lack of men
 - Using gamification to incentivize participation and maintain long-term engagement.
 
 For example, a student seeking internship guidance can easily find and connect with an alumnus working in their desired industry, while administrators can monitor event attendance and platform usage in real time.
+<img width="1068" height="876" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (1)" src="https://github.com/user-attachments/assets/26eeda7e-df81-415a-9bcf-b56381756bb6" />
+
 
 ## 3. Innovation and Uniqueness of the Solution
 
@@ -29,6 +31,8 @@ For example, a student seeking internship guidance can easily find and connect w
 - **Gamification:** Points, badges, and leaderboards encourage active participation and foster a vibrant community.
 - **Blockchain Credential Verification:** Ensures authenticity of alumni credentials, enhancing trust.
 - **Real-Time Analytics:** Provides administrators with actionable insights into platform engagement and performance.
+<img width="987" height="614" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (2)" src="https://github.com/user-attachments/assets/f55efa6e-725f-4e84-9bea-f3b1a8c1bd23" />
+
 
 ## 4. Technologies to be Used
 
@@ -43,6 +47,8 @@ For example, a student seeking internship guidance can easily find and connect w
 - **Blockchain:** (Planned) Credential verification module
 - **Database:** (Future) MongoDB/PostgreSQL
 - **Development Environment:** Node.js, cross-platform browsers
+<img width="936" height="996" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (4)" src="https://github.com/user-attachments/assets/2342d585-5cf3-4196-8826-7e5267e6a21a" />
+
 
 ## 5. Methodology and Process for Implementation
 
@@ -54,6 +60,7 @@ For example, a student seeking internship guidance can easily find and connect w
 4. **Feature Implementation:** Develop event management, job portal, mentorship, complaints, and gamification.
 5. **Integration & Testing:** Combine modules, test responsiveness and cross-browser compatibility.
 6. **Deployment:** Prepare for production deployment and future backend integration.
+
 
 ### Flow Chart (Mermaid Code)
 
@@ -114,6 +121,7 @@ flowchart TD
 - [Tailwind CSS Guide](https://tailwindcss.com/docs)
 - [Blockchain Credential Verification](https://example.com/blockchain-credentials)
 - [AI Recommendation Systems](https://example.com/ai-recommendation)
+
 
 ---
 
