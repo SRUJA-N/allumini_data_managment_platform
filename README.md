@@ -99,6 +99,8 @@ flowchart TD
 - Collaborate with AI and blockchain experts or use third-party APIs.
 - Seek sponsorships or grants for infrastructure costs.
 - Implement user training and feedback loops to improve adoption.
+<img width="924" height="786" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (8)" src="https://github.com/user-attachments/assets/7e77f2c6-dcd0-4e76-af00-413fa634294b" />
+
 
 ## 9. Potential Impact on the Target Audience
 
@@ -113,6 +115,8 @@ flowchart TD
 - Boosts employability and skill development.
 - Promotes transparency and accountability.
 - Encourages lifelong engagement with the alma mater.
+<img width="950" height="950" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (7)" src="https://github.com/user-attachments/assets/db6ed6ee-95b8-470c-be86-a99b910edcc5" />
+
 
 ## 11. References and Research Work
 
@@ -122,6 +126,7 @@ flowchart TD
 - [Blockchain Credential Verification](https://example.com/blockchain-credentials)
 - [AI Recommendation Systems](https://example.com/ai-recommendation)
 
+<img width="1020" height="792" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (5)" src="https://github.com/user-attachments/assets/9a7b91e3-b28d-414e-8b8d-d79ae16a87ad" />
 
 ---
 
