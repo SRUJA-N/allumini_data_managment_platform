@@ -33,7 +33,7 @@ export const EventManagement: React.FC = () => {
       category: 'Workshop',
       status: 'pending',
       submittedDate: '2024-02-20',
-      budget: '$500',
+      budget: '₹500',
       requirements: ['Projector', 'Laptops', 'WiFi Access']
     },
     {
@@ -48,7 +48,7 @@ export const EventManagement: React.FC = () => {
       category: 'Career',
       status: 'pending',
       submittedDate: '2024-02-22',
-      budget: '$300',
+      budget: '₹300',
       requirements: ['Microphones', 'Stage Setup', 'Recording Equipment']
     },
     {
@@ -63,7 +63,7 @@ export const EventManagement: React.FC = () => {
       category: 'Competition',
       status: 'approved',
       submittedDate: '2024-02-18',
-      budget: '$1000',
+      budget: '₹1000',
       requirements: ['Presentation Setup', 'Judging Tables', 'Prize Fund']
     },
     {
@@ -78,7 +78,7 @@ export const EventManagement: React.FC = () => {
       category: 'Entertainment',
       status: 'rejected',
       submittedDate: '2024-02-25',
-      budget: '$800',
+      budget: '₹800',
       requirements: ['Gaming Setups', 'Streaming Equipment', 'Prizes']
     }
   ]);

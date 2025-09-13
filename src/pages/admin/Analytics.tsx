@@ -179,7 +179,7 @@ export const Analytics: React.FC = () => {
                     <p className="text-sm text-gray-500">Entry level</p>
                   </div>
                 </div>
-                <span className="text-2xl font-bold text-purple-600">${analyticsData.jobStats.averageSalary.toLocaleString()}</span>
+                <span className="text-2xl font-bold text-purple-600">₹{analyticsData.jobStats.averageSalary.toLocaleString()}</span>
               </div>
             </div>
           </CardContent>

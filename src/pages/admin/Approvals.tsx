@@ -58,7 +58,7 @@ export const Approvals: React.FC = () => {
       priority: 'medium',
       details: {
         company: 'TechStart Inc.',
-        salary: '$80,000 - $100,000',
+        salary: '₹80,000 - ₹100,000',
         location: 'Remote'
       }
     },
@@ -215,7 +215,7 @@ export const Approvals: React.FC = () => {
                     <div className="text-sm text-gray-600">
                       {Object.entries(item.details).map(([key, value]) => (
                         <p key={key}>
-                          <span className="font-medium capitalize">{key.replace(/([A-Z])/g, ' $1')}:</span> {value}
+                          <span className="font-medium capitalize">{key.replace(/([A-Z])/g, ' $1').toLowerCase()}:</span> {String(value)}
                         </p>
                       ))}
                     </div>
