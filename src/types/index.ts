@@ -50,6 +50,10 @@ export interface Complaint {
   status: 'pending' | 'in-progress' | 'resolved';
   date: string;
   priority: 'low' | 'medium' | 'high';
+  submittedBy?: string;
+  submittedByRole?: string;
+  jobId?: string;
+  jobTitle?: string;
 }
 
 export interface Badge {

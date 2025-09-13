@@ -1,60 +1,81 @@
 import React, { useState } from 'react';
 import { Card, CardHeader, CardContent } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
+import { useAuth } from '../context/AuthContext';
+import { adminComplaints, employeeJobComplaints } from '../data/complaints';
 import { MessageSquare, Plus, AlertCircle, CheckCircle, Clock } from 'lucide-react';
 
-interface Complaint {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  status: 'pending' | 'in-progress' | 'resolved';
-  date: string;
-  priority: 'low' | 'medium' | 'high';
-}
-
 export const Complaints: React.FC = () => {
-  const [complaints, setComplaints] = useState<Complaint[]>([
-    {
-      id: '1',
-      title: 'Login Issues with Student Portal',
-      description: 'Unable to access the student portal despite multiple attempts. Getting error messages.',
-      category: 'Technical',
-      status: 'resolved',
-      date: '2024-02-15',
-      priority: 'high'
-    },
-    {
-      id: '2',
-      title: 'Missing Course Materials',
-      description: 'Course materials for CS 301 are not available on the learning platform.',
-      category: 'Academic',
-      status: 'in-progress',
-      date: '2024-02-20',
-      priority: 'medium'
+  const { user } = useAuth();
+  
+  // Get appropriate complaints based on user role
+  const getInitialComplaints = () => {
+    if (user?.role === 'employee') {
+      return employeeJobComplaints;
+    } else if (user?.role === 'admin') {
+      return adminComplaints;
     }
-  ]);
+    return []; // Students and alumni don't see existing complaints, only submit new ones
+  };
+
+  const [complaints, setComplaints] = useState(getInitialComplaints());
 
   const [showForm, setShowForm] = useState(false);
   const [newComplaint, setNewComplaint] = useState({
     title: '',
     description: '',
-    category: 'Technical',
+    category: user?.role === 'employee' ? 'Job Posting' : 'Technical',
     priority: 'medium' as const
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const complaint: Complaint = {
+    const complaint = {
       id: Date.now().toString(),
       ...newComplaint,
       status: 'pending',
-      date: new Date().toISOString().split('T')[0]
+      date: new Date().toISOString().split('T')[0],
+      submittedBy: user?.name || 'Unknown',
+      submittedByRole: user?.role || 'unknown'
     };
     
     setComplaints([complaint, ...complaints]);
-    setNewComplaint({ title: '', description: '', category: 'Technical', priority: 'medium' });
+    setNewComplaint({ 
+      title: '', 
+      description: '', 
+      category: user?.role === 'employee' ? 'Job Posting' : 'Technical', 
+      priority: 'medium' 
+    });
     setShowForm(false);
+  };
+
+  const getComplaintCategories = () => {
+    if (user?.role === 'employee') {
+      return ['Job Posting', 'Interview Process', 'Company Issues', 'Application Problems'];
+    }
+    return ['Technical', 'Academic', 'Administrative', 'Facilities', 'Other'];
+  };
+
+  const getPageTitle = () => {
+    switch (user?.role) {
+      case 'employee':
+        return 'Job-Related Complaints';
+      case 'admin':
+        return 'Platform Complaints';
+      default:
+        return 'Complaints & Feedback';
+    }
+  };
+
+  const getPageDescription = () => {
+    switch (user?.role) {
+      case 'employee':
+        return 'Review and resolve job-related complaints from students';
+      case 'admin':
+        return 'Manage all platform complaints and feedback';
+      default:
+        return 'Submit and track your complaints and feedback';
+    }
   };
 
   const getStatusIcon = (status: string) => {
@@ -94,19 +115,23 @@ export const Complaints: React.FC = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Complaints & Feedback</h1>
-          <p className="text-gray-600">Submit and track your complaints and feedback</p>
+          <h1 className="text-2xl font-bold text-gray-900">{getPageTitle()}</h1>
+          <p className="text-gray-600">{getPageDescription()}</p>
         </div>
-        <Button onClick={() => setShowForm(!showForm)}>
-          <Plus className="w-4 h-4 mr-2" />
-          New Complaint
-        </Button>
+        {(user?.role === 'student' || user?.role === 'alumni') && (
+          <Button onClick={() => setShowForm(!showForm)}>
+            <Plus className="w-4 h-4 mr-2" />
+            New Complaint
+          </Button>
+        )}
       </div>
 
       {showForm && (
         <Card>
           <CardHeader>
-            <h3 className="text-lg font-semibold text-gray-900">Submit New Complaint</h3>
+            <h3 className="text-lg font-semibold text-gray-900">
+              {user?.role === 'employee' ? 'Report Job-Related Issue' : 'Submit New Complaint'}
+            </h3>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -142,11 +167,9 @@ export const Complaints: React.FC = () => {
                     onChange={(e) => setNewComplaint({ ...newComplaint, category: e.target.value })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    <option value="Technical">Technical</option>
-                    <option value="Academic">Academic</option>
-                    <option value="Administrative">Administrative</option>
-                    <option value="Facilities">Facilities</option>
-                    <option value="Other">Other</option>
+                    {getComplaintCategories().map(category => (
+                      <option key={category} value={category}>{category}</option>
+                    ))}
                   </select>
                 </div>
 
@@ -217,12 +240,18 @@ export const Complaints: React.FC = () => {
 
       <Card>
         <CardHeader>
-          <h3 className="text-lg font-semibold text-gray-900">My Complaints</h3>
+          <h3 className="text-lg font-semibold text-gray-900">
+            {user?.role === 'employee' || user?.role === 'admin' ? 'All Complaints' : 'My Complaints'}
+          </h3>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             {complaints.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">No complaints submitted yet.</p>
+              <p className="text-gray-500 text-center py-8">
+                {user?.role === 'employee' || user?.role === 'admin' 
+                  ? 'No complaints to review.' 
+                  : 'No complaints submitted yet.'}
+              </p>
             ) : (
               complaints.map((complaint) => (
                 <div key={complaint.id} className="p-4 border border-gray-200 rounded-lg">
@@ -241,12 +270,29 @@ export const Complaints: React.FC = () => {
                       <div className="flex items-center space-x-4 text-xs text-gray-500">
                         <span>Category: {complaint.category}</span>
                         <span>Submitted: {new Date(complaint.date).toLocaleDateString()}</span>
+                        {(user?.role === 'employee' || user?.role === 'admin') && complaint.submittedBy && (
+                          <span>By: {complaint.submittedBy} ({complaint.submittedByRole})</span>
+                        )}
+                        {complaint.jobTitle && (
+                          <span>Job: {complaint.jobTitle}</span>
+                        )}
                       </div>
                     </div>
                     <div className="ml-4">
                       {getStatusIcon(complaint.status)}
                     </div>
                   </div>
+                  
+                  {(user?.role === 'employee' || user?.role === 'admin') && complaint.status === 'pending' && (
+                    <div className="mt-3 flex space-x-2">
+                      <Button variant="primary" size="sm">
+                        Mark as In Progress
+                      </Button>
+                      <Button variant="secondary" size="sm">
+                        Resolve
+                      </Button>
+                    </div>
+                  )}
                   
                   {complaint.status === 'resolved' && (
                     <div className="mt-3 p-3 bg-green-50 rounded-lg">

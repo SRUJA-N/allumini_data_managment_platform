@@ -19,6 +19,12 @@ import { Complaints } from './pages/Complaints';
 import { AIAdvisor } from './pages/AIAdvisor';
 import { Gamification } from './pages/Gamification';
 import { Blockchain } from './pages/Blockchain';
+import { Memories } from './pages/Memories';
+import { JobManagement } from './pages/employee/JobManagement';
+import { EventManagement } from './pages/employee/EventManagement';
+import { Approvals } from './pages/admin/Approvals';
+import { Analytics } from './pages/admin/Analytics';
+import { Leaderboard } from './pages/admin/Leaderboard';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuth();
@@ -46,19 +52,19 @@ const AppRoutes: React.FC = () => {
       <Route path="/job-referrals" element={<ProtectedRoute><Jobs /></ProtectedRoute>} />
       <Route path="/mentorship" element={<ProtectedRoute><Mentorship /></ProtectedRoute>} />
       <Route path="/complaints" element={<ProtectedRoute><Complaints /></ProtectedRoute>} />
-      <Route path="/memories" element={<ProtectedRoute><div className="p-6"><h1 className="text-2xl font-bold">Memories Gallery</h1><p className="text-gray-600">Coming soon...</p></div></ProtectedRoute>} />
+      <Route path="/memories" element={<ProtectedRoute><Memories /></ProtectedRoute>} />
       <Route path="/ai-advisor" element={<ProtectedRoute><AIAdvisor /></ProtectedRoute>} />
       <Route path="/gamification" element={<ProtectedRoute><Gamification /></ProtectedRoute>} />
       <Route path="/blockchain" element={<ProtectedRoute><Blockchain /></ProtectedRoute>} />
 
       {/* Employee Routes */}
-      <Route path="/job-management" element={<ProtectedRoute><div className="p-6"><h1 className="text-2xl font-bold">Job Management</h1><p className="text-gray-600">Manage job postings and applications.</p></div></ProtectedRoute>} />
-      <Route path="/event-management" element={<ProtectedRoute><div className="p-6"><h1 className="text-2xl font-bold">Event Management</h1><p className="text-gray-600">Approve and manage university events.</p></div></ProtectedRoute>} />
+      <Route path="/job-management" element={<ProtectedRoute><JobManagement /></ProtectedRoute>} />
+      <Route path="/event-management" element={<ProtectedRoute><EventManagement /></ProtectedRoute>} />
 
       {/* Admin Routes */}
-      <Route path="/approvals" element={<ProtectedRoute><div className="p-6"><h1 className="text-2xl font-bold">Approvals</h1><p className="text-gray-600">Manage system approvals and verifications.</p></div></ProtectedRoute>} />
-      <Route path="/analytics" element={<ProtectedRoute><div className="p-6"><h1 className="text-2xl font-bold">Platform Analytics</h1><p className="text-gray-600">View comprehensive platform analytics.</p></div></ProtectedRoute>} />
-      <Route path="/leaderboard" element={<ProtectedRoute><div className="p-6"><h1 className="text-2xl font-bold">Leaderboard</h1><p className="text-gray-600">Top contributors and achievements.</p></div></ProtectedRoute>} />
+      <Route path="/approvals" element={<ProtectedRoute><Approvals /></ProtectedRoute>} />
+      <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+      <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
 
       {/* Settings */}
       <Route path="/settings" element={<ProtectedRoute><div className="p-6"><h1 className="text-2xl font-bold">Settings</h1><p className="text-gray-600">Manage your account settings.</p></div></ProtectedRoute>} />

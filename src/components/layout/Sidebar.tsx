@@ -53,7 +53,6 @@ export const Sidebar: React.FC = () => {
           { icon: Briefcase, label: 'Job Referrals', href: '/job-referrals' },
           { icon: Users, label: 'Mentorship', href: '/mentorship' },
           { icon: MessageSquare, label: 'Memories', href: '/memories' },
-          { icon: Brain, label: 'AI Career Advisor', href: '/ai-advisor' },
           { icon: Trophy, label: 'Gamification', href: '/gamification' },
           { icon: Shield, label: 'Blockchain', href: '/blockchain' }
         ];
