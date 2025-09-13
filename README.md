@@ -1,4 +1,4 @@
-<img width="1020" height="834" alt="image" src="https://github.com/user-attachments/assets/927ea59c-72fc-4737-b28d-525608da61f8" /># Alumni Data Management Platform - Smart India Hackathon Project Report
+# Alumni Data Management Platform - Smart India Hackathon Project Report
 
 ## 1. Detailed Explanation of the Proposed Solution
 
