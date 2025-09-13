@@ -34,7 +34,7 @@ For example, a student seeking internship guidance can easily find and connect w
 <img width="914" height="470" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (9)" src="https://github.com/user-attachments/assets/fe607a1e-689f-43f8-8093-885637379a46" />
 
 
-## 4. Technologies to be Used
+## 4. Technologies Used
 
 - **Programming Languages:** TypeScript, JavaScript
 - **Frontend Framework:** React with Vite build tool
@@ -43,10 +43,8 @@ For example, a student seeking internship guidance can easily find and connect w
 - **Data Visualization:** Recharts
 - **Icons:** Lucide React
 - **Linting and Formatting:** ESLint, Prettier
-- **AI Integration:** (Planned) AI recommendation engine
-- **Blockchain:** (Planned) Credential verification module
-- **Database:** (Future) MongoDB/PostgreSQL
-- **Development Environment:** Node.js, cross-platform browsers
+- **AI Integration:**  AI recommendation engine
+- **Blockchain:** Credential verification module
 <img width="936" height="996" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (4)" src="https://github.com/user-attachments/assets/2342d585-5cf3-4196-8826-7e5267e6a21a" />
 
 
