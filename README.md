@@ -7,6 +7,8 @@ The Alumni Data Management Platform is a web-based solution designed to seamless
 The platform provides role-based dashboards tailored to each user type, enabling personalized experiences. It integrates gamification elements to boost engagement and uses AI-powered recommendations to connect users with relevant opportunities.
 
 By digitizing and unifying alumni data management, the platform addresses the inefficiencies of traditional systems, enabling real-time communication, streamlined event management, and enhanced career support.
+<img width="852" height="473" alt="image" src="https://github.com/user-attachments/assets/43c0d9cb-2b00-40ac-b5bc-4edd86f8843b" />
+
 
 ## 2. How It Addresses the Problem
 
