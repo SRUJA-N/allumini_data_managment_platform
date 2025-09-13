@@ -7,7 +7,7 @@ The Alumni Data Management Platform is a web-based solution designed to seamless
 The platform provides role-based dashboards tailored to each user type, enabling personalized experiences. It integrates gamification elements to boost engagement and uses AI-powered recommendations to connect users with relevant opportunities.
 
 By digitizing and unifying alumni data management, the platform addresses the inefficiencies of traditional systems, enabling real-time communication, streamlined event management, and enhanced career support.
-<img width="852" height="473" alt="image" src="https://github.com/user-attachments/assets/43c0d9cb-2b00-40ac-b5bc-4edd86f8843b" />
+
 
 
 ## 2. How It Addresses the Problem
@@ -21,7 +21,7 @@ Traditional alumni management suffers from fragmented communication, lack of men
 - Using gamification to incentivize participation and maintain long-term engagement.
 
 For example, a student seeking internship guidance can easily find and connect with an alumnus working in their desired industry, while administrators can monitor event attendance and platform usage in real time.
-<img width="1068" height="876" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (1)" src="https://github.com/user-attachments/assets/26eeda7e-df81-415a-9bcf-b56381756bb6" />
+
 
 
 ## 3. Innovation and Uniqueness of the Solution
@@ -31,7 +31,7 @@ For example, a student seeking internship guidance can easily find and connect w
 - **Gamification:** Points, badges, and leaderboards encourage active participation and foster a vibrant community.
 - **Blockchain Credential Verification:** Ensures authenticity of alumni credentials, enhancing trust.
 - **Real-Time Analytics:** Provides administrators with actionable insights into platform engagement and performance.
-<img width="987" height="614" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (2)" src="https://github.com/user-attachments/assets/f55efa6e-725f-4e84-9bea-f3b1a8c1bd23" />
+<img width="914" height="470" alt="Alumni Data Management Platform - Smart India Hackathon Project Report - visual selection (9)" src="https://github.com/user-attachments/assets/fe607a1e-689f-43f8-8093-885637379a46" />
 
 
 ## 4. Technologies to be Used
@@ -60,6 +60,7 @@ For example, a student seeking internship guidance can easily find and connect w
 4. **Feature Implementation:** Develop event management, job portal, mentorship, complaints, and gamification.
 5. **Integration & Testing:** Combine modules, test responsiveness and cross-browser compatibility.
 6. **Deployment:** Prepare for production deployment and future backend integration.
+
 
 
 ### Flow Chart (Mermaid Code)
