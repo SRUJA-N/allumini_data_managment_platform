@@ -66,42 +66,11 @@ For example, a student seeking internship guidance can easily find and connect w
 ```mermaid
 flowchart TD
   A[User Login] --> B{Role Detection}
-  B -->|Student| C1[Student Dashboard]
-  B -->|Alumni| C2[Alumni Dashboard]
-  B -->|Employee| C3[Employee Dashboard]
-  B -->|Admin| C4[Admin Dashboard]
+  B -->|Student| C[Student Dashboard → Apply to Jobs/Events]
+  B -->|Alumni| D[Alumni Dashboard → Create Events/Mentorship]
+  B -->|Employee| E[Employee Dashboard → Manage Jobs & Complaints]
+  B -->|Admin| F[Admin Dashboard → Approvals & Analytics]
 
-  C1 --> S1[Browse Events]
-  C1 --> S2[Browse Jobs]
-  C1 --> S3[Mentorship Requests]
-  S1 --> S1a[Register for Event]
-  S2 --> S2a[Apply for Job]
-  S3 --> S3a[Connect with Mentor]
-  S1a --> C1
-  S2a --> C1
-  S3a --> C1
-
-  C2 --> A1[Create Event]
-  C2 --> A2[Offer Mentorship]
-  C2 --> A3[Share Memories]
-  C2 --> A4[View Profile / Dashboard]
-  A1 --> A1a[Submit Event for Approval]
-  A2 --> A2a[Set Availability]
-  A1a --> C2
-  A2a --> C2
-  
-  C3 --> E1[Manage Jobs Postings]
-  C3 --> E2[Handle Complaints]
-  E1 --> E1a[Approve/Reject Applications]
-  E2 --> E2a[Resolve Complaint]
-  E1a --> C3
-  E2a --> C3
-
-  C4 --> D1[View Analytics]
-  C4 --> D2[Approvals]
-  D2 --> D2a[Approve Events / Jobs / Users]
-  D2a --> C4
-  D1 --> C4
 
 ```
 
