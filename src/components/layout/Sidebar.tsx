@@ -61,7 +61,8 @@ export const Sidebar: React.FC = () => {
         return [
           ...baseItems,
           { icon: Briefcase, label: 'Job Management', href: '/job-management' },
-          { icon: MessageSquare, label: 'Complaints', href: '/complaints' }
+          { icon: MessageSquare, label: 'Complaints', href: '/complaints' },
+          { icon: Shield, label: 'Blockchain', href: '/blockchain' }
         ];
 
       case 'admin':

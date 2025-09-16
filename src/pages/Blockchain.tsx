@@ -25,10 +25,26 @@ export const Blockchain: React.FC = () => {
       ],
       walletAddress: '0x842d45Dc7C8b3F9BG3d97b0G5f83C8E9G4F5B2C3',
       totalVerifications: 8
+    },
+    recruiter: {
+      certificates: [
+        { name: 'Company Verification', status: 'verified', date: '2022-01-15', hash: '0x2b3c4d5e6f7g8h9i0j1k' },
+        { name: 'Recruiter License', status: 'verified', date: '2022-02-01', hash: '0x8h7g6f5e4d3c2b1a0z9y' },
+        { name: 'Background Check', status: 'verified', date: '2023-08-10', hash: '0x6e7f8g9h0i1j2k3l4m5n' }
+      ],
+      walletAddress: '0x943e56Ed8D9c4G0CH4e08c1H6g94D0F0H5G6C4D5',
+      totalVerifications: 6
     }
   };
 
-  const currentUserData = user?.role === 'student' ? verificationData.student : verificationData.alumni;
+  const currentUserData = user?.role === 'student' ? verificationData.student : user?.role === 'recruiter' ? verificationData.recruiter : verificationData.alumni;
+
+  // Added to ensure recruiter role is handled in UI text
+  const getUserRoleText = () => {
+    if (user?.role === 'student') return 'Student';
+    if (user?.role === 'recruiter') return 'Recruiter';
+    return 'Alumni';
+  };
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -93,7 +109,7 @@ export const Blockchain: React.FC = () => {
                   <Shield className="w-6 h-6 text-green-600" />
                 </div>
                 <h3 className="text-lg font-bold text-green-600">Verified</h3>
-                <p className="text-sm text-gray-600">{user?.role === 'student' ? 'Student' : 'Alumni'} Status</p>
+                <p className="text-sm text-gray-600">{getUserRoleText()} Status</p>
               </>
             ) : (
               <>
@@ -185,7 +201,7 @@ export const Blockchain: React.FC = () => {
                 <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
                   <div>
                     <p className="text-sm font-medium text-gray-900">Identity Verified</p>
-                    <p className="text-xs text-gray-500">{user?.role === 'student' ? 'Student' : 'Alumni'} Status</p>
+                    <p className="text-xs text-gray-500">{getUserRoleText()} Status</p>
                   </div>
                   <Shield className="w-5 h-5 text-blue-600" />
                 </div>

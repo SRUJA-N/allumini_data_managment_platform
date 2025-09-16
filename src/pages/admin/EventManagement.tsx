@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Card, CardHeader, CardContent } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
-import { CheckCircle, XCircle, Clock, Calendar, MapPin, Users, AlertTriangle } from 'lucide-react';
+import { CheckCircle, XCircle, Clock, Calendar, MapPin, Users, AlertTriangle, Plus } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 
 interface EventRequest {
   id: string;
   title: string;
   description: string;
   organizer: string;
-  organizerRole: 'student' | 'alumni';
+  organizerRole: 'student' | 'alumni' | 'admin';
   requestedDate: string;
   location: string;
   expectedAttendees: number;
@@ -20,6 +21,19 @@ interface EventRequest {
 }
 
 export const EventManagement: React.FC = () => {
+  const { user } = useAuth();
+  const [showModal, setShowModal] = useState(false);
+  const [newEvent, setNewEvent] = useState({
+    title: '',
+    description: '',
+    date: '',
+    location: '',
+    expectedAttendees: '',
+    category: '',
+    budget: '',
+    requirements: ''
+  });
+
   const [eventRequests, setEventRequests] = useState<EventRequest[]>([
     {
       id: '1',
@@ -84,9 +98,39 @@ export const EventManagement: React.FC = () => {
   ]);
 
   const handleEventAction = (id: string, action: 'approved' | 'rejected') => {
-    setEventRequests(prev => prev.map(event => 
+    setEventRequests(prev => prev.map(event =>
       event.id === id ? { ...event, status: action } : event
     ));
+  };
+
+  const handleSubmit = () => {
+    const event: EventRequest = {
+      id: Date.now().toString(),
+      title: newEvent.title,
+      description: newEvent.description,
+      organizer: user?.name || 'Admin',
+      organizerRole: 'admin',
+      requestedDate: newEvent.date,
+      location: newEvent.location,
+      expectedAttendees: parseInt(newEvent.expectedAttendees) || 0,
+      category: newEvent.category,
+      status: 'approved',
+      submittedDate: new Date().toISOString().split('T')[0],
+      budget: newEvent.budget || undefined,
+      requirements: newEvent.requirements ? newEvent.requirements.split(',').map(r => r.trim()) : undefined
+    };
+    setEventRequests(prev => [...prev, event]);
+    setNewEvent({
+      title: '',
+      description: '',
+      date: '',
+      location: '',
+      expectedAttendees: '',
+      category: '',
+      budget: '',
+      requirements: ''
+    });
+    setShowModal(false);
   };
 
   const getStatusColor = (status: string) => {
@@ -131,9 +175,20 @@ export const EventManagement: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">Event Management</h1>
-        <p className="text-gray-600">Review and approve event requests from students and alumni</p>
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Event Management</h1>
+          <p className="text-gray-600">Review and approve event requests from students and alumni</p>
+        </div>
+        <Button
+          variant="primary"
+          size="sm"
+          onClick={() => setShowModal(true)}
+          className="flex items-center space-x-2"
+        >
+          <Plus className="w-4 h-4" />
+          <span>Host New Event</span>
+        </Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -301,6 +356,79 @@ export const EventManagement: React.FC = () => {
           </div>
         </CardContent>
       </Card>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md">
+            <h2 className="text-xl font-bold mb-4">Host New Event</h2>
+            <div className="space-y-4">
+              <input
+                type="text"
+                placeholder="Event Title"
+                value={newEvent.title}
+                onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+                className="w-full p-2 border rounded"
+              />
+              <textarea
+                placeholder="Event Description"
+                value={newEvent.description}
+                onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+                className="w-full p-2 border rounded"
+                rows={3}
+              />
+              <input
+                type="date"
+                value={newEvent.date}
+                onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+                className="w-full p-2 border rounded"
+              />
+              <input
+                type="text"
+                placeholder="Location"
+                value={newEvent.location}
+                onChange={(e) => setNewEvent({ ...newEvent, location: e.target.value })}
+                className="w-full p-2 border rounded"
+              />
+              <input
+                type="number"
+                placeholder="Expected Attendees"
+                value={newEvent.expectedAttendees}
+                onChange={(e) => setNewEvent({ ...newEvent, expectedAttendees: e.target.value })}
+                className="w-full p-2 border rounded"
+              />
+              <input
+                type="text"
+                placeholder="Category"
+                value={newEvent.category}
+                onChange={(e) => setNewEvent({ ...newEvent, category: e.target.value })}
+                className="w-full p-2 border rounded"
+              />
+              <input
+                type="text"
+                placeholder="Budget (optional)"
+                value={newEvent.budget}
+                onChange={(e) => setNewEvent({ ...newEvent, budget: e.target.value })}
+                className="w-full p-2 border rounded"
+              />
+              <input
+                type="text"
+                placeholder="Requirements (comma separated)"
+                value={newEvent.requirements}
+                onChange={(e) => setNewEvent({ ...newEvent, requirements: e.target.value })}
+                className="w-full p-2 border rounded"
+              />
+            </div>
+            <div className="flex space-x-3 mt-6">
+              <Button variant="primary" onClick={handleSubmit}>
+                Post Event
+              </Button>
+              <Button variant="outline" onClick={() => setShowModal(false)}>
+                Cancel
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
