@@ -21,10 +21,10 @@ import { Gamification } from './pages/Gamification';
 import { Blockchain } from './pages/Blockchain';
 import { Memories } from './pages/Memories';
 import { JobManagement } from './pages/recruiter/JobManagement';
-import { EventManagement } from './pages/recruiter/EventManagement';
 import { Approvals } from './pages/admin/Approvals';
 import { Analytics } from './pages/admin/Analytics';
 import { Leaderboard } from './pages/admin/Leaderboard';
+import { EventManagement } from './pages/admin/EventManagement';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuth();
@@ -59,12 +59,12 @@ const AppRoutes: React.FC = () => {
 
       {/* Recruiter Routes */}
       <Route path="/job-management" element={<ProtectedRoute><JobManagement /></ProtectedRoute>} />
-      <Route path="/event-management" element={<ProtectedRoute><EventManagement /></ProtectedRoute>} />
 
       {/* Admin Routes */}
       <Route path="/approvals" element={<ProtectedRoute><Approvals /></ProtectedRoute>} />
       <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
       <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
+      <Route path="/event-management" element={<ProtectedRoute><EventManagement /></ProtectedRoute>} />
 
       {/* Settings */}
       <Route path="/settings" element={<ProtectedRoute><div className="p-6"><h1 className="text-2xl font-bold">Settings</h1><p className="text-gray-600">Manage your account settings.</p></div></ProtectedRoute>} />

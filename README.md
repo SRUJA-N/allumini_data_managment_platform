@@ -1,118 +1,61 @@
-# Alumni Data Management Platform - Smart India Hackathon Project Report
+# Alumni Data Management & Engagement Platform
 
-## 1. Detailed Explanation of the Proposed Solution
+## Overview
+This platform connects students, alumni, recruiters, and university administrators in a comprehensive ecosystem to facilitate career growth, mentorship, event management, and community engagement. It is built using React and TypeScript with Tailwind CSS for styling.
 
-The Alumni Data Management Platform is a web-based solution designed to seamlessly connect students, alumni, recruiters, and administrators. It acts as a centralized hub for managing alumni data, facilitating mentorship, job opportunities, event participation, and community engagement.
+## Key Features
 
-The platform provides role-based dashboards tailored to each user type, enabling personalized experiences. It integrates gamification elements to boost engagement and uses AI-powered recommendations to connect users with relevant opportunities.
+### Recruiter Module
+- Manage university operations related to job postings and student services.
+- Handle complaints related to job postings and recruitment processes.
+- Access a dedicated Recruiter dashboard with relevant metrics and tasks.
 
-By digitizing and unifying alumni data management, the platform addresses the inefficiencies of traditional systems, enabling real-time communication, streamlined event management, and enhanced career support.
+### Admin Module
+- Oversee platform-wide operations, analytics, and user management.
+- Manage approvals, leaderboards, and event management.
+- View and resolve all submitted complaints across the platform.
+- Access a dedicated Admin dashboard with comprehensive system insights.
 
-## 2. How It Addresses the Problem
+### Other Roles
+- **Student Portal:** Access academic journey, events, jobs, mentorship, and AI career advisor.
+- **Alumni Portal:** Connect with alma mater, mentor students, host events, and job referrals.
 
-Traditional alumni management suffers from fragmented communication, lack of mentorship access, and inefficient event coordination. This platform directly tackles these issues by:
+## Project Structure
+- `src/pages/auth/`: Authentication pages for different roles.
+- `src/pages/recruiter/`: Recruiter-specific pages like Job Management.
+- `src/pages/admin/`: Admin-specific pages including Analytics, Approvals, Event Management.
+- `src/pages/Complaints.tsx`: Complaints handling accessible by Recruiter and Admin.
+- `src/components/layout/Sidebar.tsx`: Role-based navigation sidebar.
+- `src/context/AuthContext.tsx`: Authentication context and user role management.
+- `src/data/`: Static data files for users, complaints, analytics, etc.
 
-- Providing a unified database accessible to all stakeholders with role-based permissions.
-- Enabling students to connect with alumni mentors based on career interests.
-- Streamlining event creation, registration, and tracking for recruiters and alumni.
-- Offering job postings and application tracking to bridge students and employers.
-- Using gamification to incentivize participation and maintain long-term engagement.
+## Setup and Running
+1. Install dependencies:
+   ```
+   npm install
+   ```
+2. Start the development server:
+   ```
+   npm run dev
+   ```
+3. Open the app in your browser at `http://localhost:5173/`.
 
-For example, a student seeking internship guidance can easily find and connect with an alumnus working in their desired industry, while administrators can monitor event attendance and platform usage in real time.
+## Usage
+- Login using the provided demo credentials on the Welcome page.
+- Navigate through role-specific portals using the sidebar.
+- Admin users can manage events, view analytics, and handle complaints.
+- Recruiters can manage job postings and view job-related complaints.
 
-## 3. Innovation and Uniqueness of the Solution
+## Testing
+- Basic manual testing has been performed for routing, navigation, and role-based access.
+- Further thorough testing is recommended for UI interactions, complaint workflows, and event management.
 
-- **Multi-Role Support:** Unlike many platforms focusing solely on alumni-student interaction, this solution supports students, alumni, recruiters, and admins with customized dashboards and features.
-- **AI-Powered Recommendations:** Personalized suggestions for events, jobs, and mentorship based on user behavior and preferences.
-- **Gamification:** Points, badges, and leaderboards encourage active participation and foster a vibrant community.
-- **Blockchain Credential Verification:** Ensures authenticity of alumni credentials, enhancing trust.
-- **Real-Time Analytics:** Provides administrators with actionable insights into platform engagement and performance.
+## Contribution
+Contributions are welcome. Please follow the existing code style and ensure role-based access control is maintained.
 
-## 4. Technologies to be Used
-
-- **Programming Languages:** TypeScript, JavaScript
-- **Frontend Framework:** React with Vite build tool
-- **Styling:** Tailwind CSS
-- **Routing:** React Router
-- **Data Visualization:** Recharts
-- **Icons:** Lucide React
-- **Linting and Formatting:** ESLint, Prettier
-- **AI Integration:** (Planned) AI recommendation engine
-- **Blockchain:** (Planned) Credential verification module
-- **Database:** (Future) MongoDB/PostgreSQL
-- **Development Environment:** Node.js, cross-platform browsers
-
-## 5. Methodology and Process for Implementation
-
-### Step-by-Step Methodology
-
-1. **Requirement Gathering:** Identify user roles and core features.
-2. **System Design:** Architect role-based access and component structure.
-3. **Frontend Development:** Build UI components, authentication, and dashboards.
-4. **Feature Implementation:** Develop event management, job portal, mentorship, complaints, and gamification.
-5. **Integration & Testing:** Combine modules, test responsiveness and cross-browser compatibility.
-6. **Deployment:** Prepare for production deployment and future backend integration.
-
-### Flow Chart (Mermaid Code)
-
-```mermaid
-flowchart TD
-  A[User Login] --> B{Role Detection}
-  B -->|Student| C[Student Dashboard]
-  B -->|Alumni| D[Alumni Dashboard]
-  B -->|Recruiter| E[Recruiter Dashboard]
-  B -->|Admin| F[Admin Dashboard]
-  C --> G[Browse Events & Jobs]
-  D --> H[Create Events & Mentorship]
-  E --> I[Manage Complaints & Jobs]
-  F --> J[View Analytics & Approvals]
-  G --> K[Apply/Register]
-  H --> L[Approve & Track]
-  I --> L
-  J --> L
-```
-
-## 6. Analysis of the Feasibility of the Idea
-
-- **Technical Feasibility:** Uses proven web technologies (React, TypeScript) with scalable architecture.
-- **Scalability:** Modular design allows easy addition of features and backend integration.
-- **Cost:** Open-source tools minimize development cost; cloud hosting can be optimized.
-- **Sustainability:** Community engagement via gamification ensures long-term platform use.
-
-## 7. Potential Challenges and Risks
-
-- **Technical:** Integration of AI and blockchain modules may require specialized expertise.
-- **Financial:** Funding for backend infrastructure and maintenance.
-- **Adoption:** User onboarding and continuous engagement.
-
-## 8. Strategies for Overcoming Challenges
-
-- Collaborate with AI and blockchain experts or use third-party APIs.
-- Seek sponsorships or grants for infrastructure costs.
-- Implement user training and feedback loops to improve adoption.
-
-## 9. Potential Impact on the Target Audience
-
-- **Students:** Access to mentorship, jobs, and events improves career prospects.
-- **Alumni:** Opportunities to give back and stay connected.
-- **Recruiters:** Streamlined management of events and complaints.
-- **Administrators:** Data-driven insights for better decision-making.
-
-## 10. Benefits of the Solution
-
-- Enhances social and professional networking.
-- Boosts employability and skill development.
-- Promotes transparency and accountability.
-- Encourages lifelong engagement with the alma mater.
-
-## 11. References and Research Work
-
-- [Alumni Management Systems - Research Paper](https://ieeexplore.ieee.org/document/1234567)
-- [React Documentation](https://reactjs.org/docs/getting-started.html)
-- [Tailwind CSS Guide](https://tailwindcss.com/docs)
-- [Blockchain Credential Verification](https://www.ibm.com/blockchain/solutions/credential-verification)
-- [AI Recommendation Systems](https://www.analyticsvidhya.com/blog/2021/06/introduction-to-recommendation-systems/)
+## License
+This project is licensed under the MIT License.
 
 ---
 
-*This document serves as a comprehensive overview of the proposed solution for the Smart India Hackathon project report.*
+For any questions or support, please contact the project maintainer.

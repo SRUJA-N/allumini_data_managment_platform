@@ -61,8 +61,7 @@ export const Sidebar: React.FC = () => {
         return [
           ...baseItems,
           { icon: Briefcase, label: 'Job Management', href: '/job-management' },
-          { icon: MessageSquare, label: 'Complaints', href: '/complaints' },
-          { icon: Calendar, label: 'Event Management', href: '/event-management' }
+          { icon: MessageSquare, label: 'Complaints', href: '/complaints' }
         ];
 
       case 'admin':
@@ -70,7 +69,9 @@ export const Sidebar: React.FC = () => {
           ...baseItems,
           { icon: UserCheck, label: 'Approvals', href: '/approvals' },
           { icon: BarChart3, label: 'Analytics', href: '/analytics' },
-          { icon: Trophy, label: 'Leaderboard', href: '/leaderboard' }
+          { icon: Trophy, label: 'Leaderboard', href: '/leaderboard' },
+          { icon: MessageSquare, label: 'Complaints', href: '/complaints' },
+          { icon: Calendar, label: 'Event Management', href: '/event-management' }
         ];
 
       default:

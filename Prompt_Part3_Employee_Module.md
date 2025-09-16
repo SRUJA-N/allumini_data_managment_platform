@@ -1,19 +1,19 @@
-# Hackathon Prompt: Part 3 - Employee Module
+# Hackathon Prompt: Part 3 - Recruiter Module
 
 ## Overview
-You are responsible for the Employee Module of the Alumni Data Management Platform. This module supports university employees in managing operations, handling complaints, and facilitating connections between students, alumni, and employers. Your work will streamline university processes and enhance operational efficiency.
+You are responsible for the Recruiter Module of the Alumni Data Management Platform. This module supports university recruiters in managing operations, handling complaints, and facilitating connections between students, alumni, and employers. Your work will streamline university processes and enhance operational efficiency.
 
 ## Key Features to Work On
-- Employee Dashboard: Overview of tasks, performance metrics, and pending items
+- Recruiter Dashboard: Overview of tasks, performance metrics, and pending items
 - Job Management: Posting and managing job opportunities for students
 - Event Management: Coordinating and approving university events
 - Complaint Handling: Processing and resolving student/alumni complaints
 
 ## Files to Read and Understand
 ### Core Pages
-- `src/pages/Dashboard.tsx` (focus on `renderEmployeeDashboard` function)
-- `src/pages/employee/JobManagement.tsx`
-- `src/pages/employee/EventManagement.tsx`
+- `src/pages/Dashboard.tsx` (focus on `renderRecruiterDashboard` function)
+- `src/pages/recruiter/JobManagement.tsx`
+- `src/pages/recruiter/EventManagement.tsx`
 - `src/pages/Complaints.tsx`
 
 ### Data Files
@@ -36,7 +36,7 @@ You are responsible for the Employee Module of the Alumni Data Management Platfo
 - `src/utils/cn.ts`
 
 ## Tasks to Complete
-1. **Enhance Employee Dashboard**: Add task prioritization, workflow automation, or performance analytics
+1. **Enhance Recruiter Dashboard**: Add task prioritization, workflow automation, or performance analytics
 2. **Improve Job Management**: Implement advanced job posting tools, candidate tracking, and employer relations
 3. **Streamline Event Management**: Build approval workflows, resource allocation, and event analytics
 4. **Optimize Complaint System**: Create efficient triage, escalation, and resolution tracking
@@ -51,7 +51,7 @@ You are responsible for the Employee Module of the Alumni Data Management Platfo
 - Use shared UI components for consistency
 
 ## Testing Checklist
-- [ ] All pages load correctly for employee role
+- [ ] All pages load correctly for recruiter role
 - [ ] Job posting and management works end-to-end
 - [ ] Event approval process functions properly
 - [ ] Complaint handling system is efficient
@@ -60,12 +60,12 @@ You are responsible for the Employee Module of the Alumni Data Management Platfo
 - [ ] All workflows maintain data integrity
 
 ## Final Deliverables
-- Efficient employee dashboard with task management
+- Efficient recruiter dashboard with task management
 - Comprehensive job management system
 - Robust event coordination platform
 - Effective complaint resolution system
 - Clean, maintainable code following project conventions
 - Documentation of any new features or changes made
 
-## BlackboxAI Build Prompt for Employee Module
-You are tasked with building the Employee Module of an Alumni Data Management Platform using React and TypeScript. The module should include a dashboard showing tasks like complaints handled, pending approvals, and jobs posted. Implement job management with posting and tracking features, event management with approval workflows, and a complaint handling system with triage and resolution tracking. Use Tailwind CSS for styling and ensure responsiveness. Integrate with shared UI components and context for authentication. Include reporting tools and compliance features. Follow best practices for operational efficiency and data integrity.
+## BlackboxAI Build Prompt for Recruiter Module
+You are tasked with building the Recruiter Module of an Alumni Data Management Platform using React and TypeScript. The module should include a dashboard showing tasks like complaints handled, pending approvals, and jobs posted. Implement job management with posting and tracking features, event management with approval workflows, and a complaint handling system with triage and resolution tracking. Use Tailwind CSS for styling and ensure responsiveness. Integrate with shared UI components and context for authentication. Include reporting tools and compliance features. Follow best practices for operational efficiency and data integrity.
